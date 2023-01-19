@@ -1,3 +1,4 @@
+using CoreVsApp.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -41,7 +42,7 @@ namespace MvcSartApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseMiddleware<LoggingMiddleware>();
             app.UseRouting();
 
             app.UseAuthorization();
